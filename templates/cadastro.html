@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+
+        <title>Cadastro da Estabelecimento</title>
+
+  		<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/css.css') }}">
+  		<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/reset_53bc1bb20a.css') }}">
+  		<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/jquery-ui_e641deecbe.css') }}">
+  		<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/default-v4_c761db9607.css') }}">
+  		<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/uil-static.css') }}">
+  		<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/dialogs_68abb2e62a.css') }}">
+
+<style type="text/css">
+
+
+</style>
+
+
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" media="all" href="//july-xrkot.formstack.com/forms/css/3/ie.css?20140508" />
+        <![endif]-->
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" media="all" href="//july-xrkot.formstack.com/forms/css/3/ie7.css" />
+        <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" media="all" href="//july-xrkot.formstack.com/forms/css/3/ie6fixes.css" />
+        <![endif]-->
+        <style type="text/css">x
+            .fsBody .fsForm .fsMatrix th, .fsBody .fsForm .fsMatrixLabel {text-align: center;}
+        </style>
+    </head>
+    <body id="fsLocal" class="fsBody fsFree">
+        <center><h1>
+        Cadastro
+        </h1></center>
+
+
+{% if message == 'Estabelecimento já cadastrado'   %}
+<script>
+alert(message);
+</script>
+{% endif %}
+
+        {% if show_example_modal %}
+    	<span class="example"  data-toggle="modal" data-target="#showExample" <a href="/showExample">Testing</a></span>
+		{% endif %}
+
+        <form method="post" novalidate action="/empresa" class="fsForm fsFormFree fsMultiColumn fsMaxCol4" id="fsForm2724721">
+            
+
+            <div class="fsPage" id="fsPage2724721-1">
+                <div class="fsSection fs4Col">
+                    <div id="fsRow2724721-1" class="fsRow fsFieldRow fsLastRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell53515161" lang="pt">
+                            <label id="label53515161" class="fsLabel fsRequiredLabel" for="nome_estabelecimento">Nome do Estabelecimento<span class="fsRequiredMarker">*</span></label>
+                            <input type="text" id="nome_estabelecimento" name="nome_estabelecimento" size="50" required value="" class="fsField fsRequired" aria-required="true" required/>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                    <div id="fsRow2724721-2" class="fsRow fsFieldRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLabelVertical fsSpan50" id="fsCell53944057" lang="pt">
+                            <label id="label53944057" class="fsLabel fsRequiredLabel" for="endereco">Endereço<span class="fsRequiredMarker">*</span></label>
+                            <label for="endereco_address" class="hidden">Linha 1<span class="fsRequiredMarker">*</span></label>
+                            <input type="text" id="endereco_address" name="endereco_address" size="50" required value="" class="fsField fsFieldAddress fsRequired" aria-required="true" required/>
+                            <div class="fsSubFieldGroup">
+                                <div class="fsSubField fsFieldState">
+                                    <input type="text" id="endereco_zip" name="endereco_zip" size="15" value="" class="fsField fsFieldZip fsFormatZipXX" required/>
+                                    <label class="fsSupporting" for="endereco_zip">CEP</label>
+                                </div>
+                                <div class="fsSubField fsFieldCity">
+                                    <input type="text" id="endereco_city" name="endereco_city" size="15" value="" required class="fsField fsFieldCity fsRequired" aria-required="true" required/>
+                                    <label class="fsSupporting" for="endereco_city">Cidade</label>
+                                </div>
+                                <div class="fsSubField fsFieldZip">
+                                    <input type="text" id="endereco_state" name="endereco_state" size="5" value="" required class="fsField fsFieldState fsRequired" required/>
+                                    <label class="fsSupporting" for="endereco_state">Estado</label>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLabelVertical fsSpan25" id="fsCell53515148" lang="pt">
+                            <fieldset id="label53515148">
+                                <legend class="fsLabel fsLabelVertical"><span>Infraestrutura para Crianças</span></legend>
+                                <div class="fieldset-content">
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_1"><input type="checkbox" id="infraestrutura_1" name="infraestrutura[]" value="Banheiro familiar" class="fsField horizontal" />Banheiro familiar</label>
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_2"><input type="checkbox" id="infraestrutura_2" name="infraestrutura[]" value="Fraldário" class="fsField horizontal" />Fraldário</label>
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_3"><input type="checkbox" id="infraestrutura_3" name="infraestrutura[]" value="Espaço kids" class="fsField horizontal" />Espaço kids</label>
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_4"><input type="checkbox" id="infraestrutura_4" name="infraestrutura[]" value="Monitor infantil" class="fsField horizontal" />Monitor infantil</label>
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_5"><input type="checkbox" id="infraestrutura_5" name="infraestrutura[]" value="Microondas" class="fsField horizontal" />Microondas</label>
+                                    <div class="horizontal">
+                                        <label class="fsOptionLabel horizontal" style="margin-right: 5px;" for="infraestrutura_other"><input type="checkbox" id="infraestrutura_other" name="infraestrutura[]" value="Other" class="fsField" />Outro:</label>
+                                        <input type="text" id="infraestrutura_othervalue" name="infraestrutura[]" size="15" class="fsOtherField"/><label class="hidden" for="infraestrutura_othervalue">Outros valores</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLast fsLabelVertical fsSpan25" id="fsCell53944228" lang="pt">
+                            <fieldset id="label53944228">
+                                <legend class="fsLabel fsLabelVertical"><span>Adicionais</span></legend>
+                                <div class="fieldset-content">
+                                    <label class="fsOptionLabel horizontal" for="adicionais_1"><input type="checkbox" id="adicionais_1" name="adicionais[]" value="Acessibilidade" class="fsField horizontal" />Acessibilidade</label>
+                                    <label class="fsOptionLabel horizontal" for="adicionais_2"><input type="checkbox" id="adicionais_2" name="adicionais[]" value="Estacionamento coberto" class="fsField horizontal" />Estacionamento coberto</label>
+                                    <label class="fsOptionLabel horizontal" for="adicionais_3"><input type="checkbox" id="adicionais_3" name="adicionais[]" value="Elevador" class="fsField horizontal" />Elevador</label>
+                                    <div class="horizontal">
+                                        <label class="fsOptionLabel horizontal" style="margin-right: 5px;" for="adicionais_other"><input type="checkbox" id="adicionais_other" name="adicionais[]" value="Other" class="fsField" />Outro:</label>
+                                        <input type="text" id="adicionais_othervalue" name="adicionais[]" size="15" class="fsOtherField"/><label class="hidden" for="adicionais_othervalue">Outros valores</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                    <div id="fsRow2724721-3" class="fsRow fsFieldRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLabelVertical fsSpan25" id="fsCell53515169" lang="pt">
+                            <label id="label53515169" class="fsLabel" for="telefone">Telefone                    </label>
+                            <input type="tel" id="telefone" name="telefone" size="50" placeholder="(XX) XXXX - XXXX" title="(XX) XXXX - XXXX" value="" class="fsField fsFormatPhoneBR " data-country="BR" data-format="national" />
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLabelVertical fsSpan25" id="fsCell53515632" lang="pt">
+                            <fieldset id="label53515632">
+                                <legend class="fsLabel fsLabelVertical"><span>Abre às</span></legend>
+                                <div class="fieldset-content">
+                                    <span class="always-ltr">
+                                        <div class="hidden"><label for="aberturaH">Hour</label></div>
+                                        <select id="aberturaH" name="aberturaH" class="fsField">
+                                            <option value=""> </option>
+                                            <option value="00">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08" selected="selected">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                        </select>
+                                        <div class="hidden"><label for="aberturaM">Minute</label></div>
+                                        <span>:</span> 
+                                        <select id="aberturaM" name="aberturaM" class="fsField">
+                                            <option value=""> </option>
+                                            <option value="00" selected="selected">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                            <option value="32">32</option>
+                                            <option value="33">33</option>
+                                            <option value="34">34</option>
+                                            <option value="35">35</option>
+                                            <option value="36">36</option>
+                                            <option value="37">37</option>
+                                            <option value="38">38</option>
+                                            <option value="39">39</option>
+                                            <option value="40">40</option>
+                                            <option value="41">41</option>
+                                            <option value="42">42</option>
+                                            <option value="43">43</option>
+                                            <option value="44">44</option>
+                                            <option value="45">45</option>
+                                            <option value="46">46</option>
+                                            <option value="47">47</option>
+                                            <option value="48">48</option>
+                                            <option value="49">49</option>
+                                            <option value="50">50</option>
+                                            <option value="51">51</option>
+                                            <option value="52">52</option>
+                                            <option value="53">53</option>
+                                            <option value="54">54</option>
+                                            <option value="55">55</option>
+                                            <option value="56">56</option>
+                                            <option value="57">57</option>
+                                            <option value="58">58</option>
+                                            <option value="59">59</option>
+                                        </select>
+                                        <div class="fs-clear">
+                                        </div>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLabelVertical fsSpan25" id="fsCell53944093" lang="pt">
+                            <fieldset id="label53944093">
+                                <legend class="fsLabel fsLabelVertical"><span>Fecha às</span></legend>
+                                <div class="fieldset-content">
+                                    <span class="always-ltr">
+                                        <div class="hidden"><label for="fechaH">Hour</label></div>
+                                        <select id="fechaH" name="fechaH" class="fsField">
+                                            <option value=""> </option>
+                                            <option value="00">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22" selected="selected">22</option>
+                                            <option value="23">23</option>
+                                        </select>
+                                        <div class="hidden"><label for="fechaM">Minute</label></div>
+                                        <span>:</span> 
+                                        <select id="fechaM" name="fechaM" class="fsField">
+                                            <option value=""> </option>
+                                            <option value="00" selected="selected">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                            <option value="32">32</option>
+                                            <option value="33">33</option>
+                                            <option value="34">34</option>
+                                            <option value="35">35</option>
+                                            <option value="36">36</option>
+                                            <option value="37">37</option>
+                                            <option value="38">38</option>
+                                            <option value="39">39</option>
+                                            <option value="40">40</option>
+                                            <option value="41">41</option>
+                                            <option value="42">42</option>
+                                            <option value="43">43</option>
+                                            <option value="44">44</option>
+                                            <option value="45">45</option>
+                                            <option value="46">46</option>
+                                            <option value="47">47</option>
+                                            <option value="48">48</option>
+                                            <option value="49">49</option>
+                                            <option value="50">50</option>
+                                            <option value="51">51</option>
+                                            <option value="52">52</option>
+                                            <option value="53">53</option>
+                                            <option value="54">54</option>
+                                            <option value="55">55</option>
+                                            <option value="56">56</option>
+                                            <option value="57">57</option>
+                                            <option value="58">58</option>
+                                            <option value="59">59</option>
+                                        </select>
+                                        <div class="fs-clear">
+                                        </div>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLast fsLabelVertical fsSpan25" id="fsCell53944192" lang="pt">
+                            <fieldset id="label53944192">
+                                <legend class="fsLabel fsLabelVertical"><span>Menor movimento</span></legend>
+                                <div class="fieldset-content">
+                                    <span class="always-ltr">
+                                        <div class="hidden"><label for="menorMovH">Hour</label></div>
+                                        <select id="menorMovH" name="menorMovH" class="fsField">
+                                            <option value=""> </option>
+                                            <option value="00">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15" selected="selected">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                        </select>
+                                        <div class="hidden"><label for="menorMovM">Minute</label></div>
+                                        <span>:</span> 
+                                        <select id="menorMovM" name="menorMovM" class="fsField">
+                                            <option value=""> </option>
+                                            <option value="00" selected="selected">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                            <option value="32">32</option>
+                                            <option value="33">33</option>
+                                            <option value="34">34</option>
+                                            <option value="35">35</option>
+                                            <option value="36">36</option>
+                                            <option value="37">37</option>
+                                            <option value="38">38</option>
+                                            <option value="39">39</option>
+                                            <option value="40">40</option>
+                                            <option value="41">41</option>
+                                            <option value="42">42</option>
+                                            <option value="43">43</option>
+                                            <option value="44">44</option>
+                                            <option value="45">45</option>
+                                            <option value="46">46</option>
+                                            <option value="47">47</option>
+                                            <option value="48">48</option>
+                                            <option value="49">49</option>
+                                            <option value="50">50</option>
+                                            <option value="51">51</option>
+                                            <option value="52">52</option>
+                                            <option value="53">53</option>
+                                            <option value="54">54</option>
+                                            <option value="55">55</option>
+                                            <option value="56">56</option>
+                                            <option value="57">57</option>
+                                            <option value="58">58</option>
+                                            <option value="59">59</option>
+                                        </select>
+                                        <div class="fs-clear">
+                                        </div>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                    <div id="fsRow2724721-4" class="fsRow fsFieldRow fsLastRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell53944073" lang="pt">
+                            <label id="label53944073" class="fsLabel" for="descricao">Descrição</label>
+                            <textarea id="descricao" name="descricao" rows="10" cols="50" class="fsField"></textarea>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="fsSubmit2724721" class="fsSubmit fsPagination">
+                <input id="fsSubmitButton2724721"
+                    class="fsSubmitButton"
+                    style="display: block;"
+                    type="submit"
+                    value="Cadastrar estabelecimento" />
+                <div class="clear"></div>
+            </div>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/jquery.min_1d14cd3798.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/jquery-ui.min_42a497cb9f.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/scripts_148ae93f95.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/analytics_e092e22178.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/google-phone-lib_f0ceec66db.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/modernizr_60a2d5aeb5.js"></script>
+            <script type="text/javascript">
+                (function() {
+					    if (typeof sessionStorage != 'undefined' && sessionStorage.fsFonts) {
+					        document.documentElement.className document.documentElement.className + ' wf-active';
+					    }
+					    var pre document.createElement('link');
+					    pre.rel 'preconnect';
+					    pre.href 'https://fonts.googleapis.com/';
+					    pre.setAttribute('crossorigin',
+					        '');
+					    var s document.getElementsByTagName('head')[0];
+					    s.appendChild(pre);
+					    var fontConfig {
+					        google: {
+					            families: ['Lato:400,700']
+					        },
+					        timeout: 2000,
+					        active: function() {
+					            if (typeof sessionStorage == 'undefined') {
+					                return;
+					            }
+					            sessionStorage.fsFonts true;
+					        }
+					    };
+					    if (typeof WebFont == 'undefined') {
+					        window.WebFontConfig fontConfig;
+					        var wf document.createElement('script');
+					        wf.type 'text/javascript';
+					        wf.async 'true';
+					        wf.src('https:' = document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+					        s.appendChild(wf);
+					    } else {
+					        WebFont.load(fontConfig);
+					    }
+					})();
+					if (window.addEventListener) {
+					    window.addEventListener('load', loadFormstack, false);
+					} else if (window.attachEvent) {
+					    window.attachEvent('onload', loadFormstack);
+					} else {
+					    loadFormstack();
+					}
+
+					function loadFormstack() {
+					    var form2724721 new Formstack.Form(2724721, 'https://july-xrkot.formstack.com/forms/');
+					    form2724721.logicFields[];
+					    form2724721.calcFields[];
+					    form2724721.init();
+					    form2724721.plugins.analytics new Formstack.Analytics('https://july-xrkot.formstack.com', 2724721, form2724721);
+					    form2724721.plugins.analytics.trackTouch();
+					    form2724721.plugins.analytics.trackBottleneck();
+					    window.form2724721 form2724721;
+					};
+            </script>
+            <div style="text-align:center !important;padding: 6px 10px !important; margin:10px auto !important; font-size:11px; font-family:Helvetica,Arial,sans-serif !important;background-color:#fff;color:#444 !important;-moz-border-radius:4px;-webkit-border-radius:4px;-o-border-radius:4px;border-radius:4px;width:150px !important">
+                <script src="//cdn.optimizely.com/js/27771037.js"></script>
+            </div>
+            
+            <div style="clear:both"></div>
+        </form>
+        <div class="fs-ngdialog fs-modal-medium fs-form-dialog fs-form-dialog--hidden">
+            <div class="fs-ngdialog-overlay"></div>
+            <div class="fs-ngdialog-content">
+                <div class="fs-modal__top fs-form-dialog__title"></div>
+                
+                <div class="fs-modal__bottom">
+                    <a class="fs-form-dialog__cancel fs-btn2 fs-btn2--size_medium fs-btn2--style_edit-dark" title="Cancelar">
+                        <div class="fs-btn2__content">
+                            <div class="fs-btn2__text">
+                                <span class="fs-form-dialog__button-text">Cancelar</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="fs-form-dialog__confirm fs-btn2 fs-btn2--size_medium fs-btn2--style_create fs--float-right" title="Confirmar">
+                        <div class="fs-btn2__content">
+                            <div class="fs-btn2__text">
+                                <span class="fs-form-dialog__button-text">Confirmar</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

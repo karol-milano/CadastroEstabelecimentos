@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+
+	</head>
+<title>site</title>
+
+
+<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/css.css') }}">
+<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/reset_53bc1bb20a.css') }}">
+<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/jquery-ui_e641deecbe.css') }}">
+<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/default-v4_c761db9607.css') }}">
+<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/uil-static.css') }}">
+<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/dialogs_68abb2e62a.css') }}">
+
+<ul>
+<body class="fsBody fsFree">
+
+<center>
+  
+<h1>Projeto Engenharia de Software - UFMS Facão</h1><br/><br/>
+
+<p>Busque o estabelecimento</p>
+
+
+<form action="/buscar" method='post'>
+
+<input list="estabelecimentos" type="text" class="fsField fsRequired" name="estabelecimento" placeholder="Nome do estabelecimento">
+
+
+
+<datalist id="estabelecimentos">
+  {% for item in lista %}
+    <option value="{{ item }}">
+  {% endfor %}
+</datalist>
+<br/>
+
+{% for i in listaInfra %}
+<input type="checkbox" id="infraestrutura[]" name="infraestrutura[]" value="{{ i }}" class="fsField horizontal" />{{ i }}
+{% endfor %}
+<br/>
+{% for i in listaAdici %}
+<input type="checkbox" id="adicionais[]" name="adicionais[]" value="{{ i }}" class="fsField horizontal" />{{ i }}
+{% endfor %}
+
+<br/><br/>
+
+  <input type="submit" class="fsSubmitButton" value="Enviar" id="submit">
+</form>
+
+<br/><br/><br/>
+
+<form action="/cadastro">
+  <input type="submit" class="fsSubmitButton" value="Cadastrar novo estabelecimento" id="submit">
+</form>
+
+
+</center>
+
+</body>
+</ul>
+
+
+</html>
