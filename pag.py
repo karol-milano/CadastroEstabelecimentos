@@ -1,5 +1,3 @@
-# JulioMiyahira - Estagiario Monitoramento STI TJMS
-
 from flask import Flask, render_template, request, flash
 import sys
 import bd, funcoes
@@ -88,29 +86,6 @@ def login2():
     return render_template('foi.html', name=nome, surname=sobrenome, email=email, password=senha)
     #processed_text = text.upper()
     #return processed_text
-
-
-# @app.route('/empresa')
-# def index_emp():
-#     #lista = correios.listar()
-#     return render_template('empresa.html')
-
-# @app.route('/empresa', methods=['POST'])
-# def empresa():
-#     nome_empresa 	= request.form['nome_empresa']
-#     endereco 		= request.form['endereco']
-#     cidade 		    = request.form['cidade']
-#     telefone 		= request.form['telefone']
-
-
-#     #bd.cadastraempresa(nome_empresa, endereco, cidade, telefone)
-#     print('empresa')
-#     return render_template('empresafoi.html', name=nome_empresa, endereco=endereco, cidade=cidade, telefone=telefone)
-#     #processed_text = text.upper()
-#     #return processed_text
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
