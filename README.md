@@ -6,7 +6,7 @@ Roda com Python3
 
 
 [INICIO] *instalar pacotes
-sudo pip3 install -r requirements
+      - $ sudo pip3 install -r requirements
 
 [RODAR] *rodar o webservice
-python3 pag.py
+      - $ python3 pag.py
