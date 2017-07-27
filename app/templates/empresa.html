@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+
+        <title>Cadastro da Estabelecimento</title>
+
+        <link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/css.css') }}">
+        <link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/reset_53bc1bb20a.css') }}">
+        <link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/jquery-ui_e641deecbe.css') }}">
+        <link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/default-v4_c761db9607.css') }}">
+        <link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/uil-static.css') }}">
+        <link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='css/dialogs_68abb2e62a.css') }}">
+
+<style type="text/css">
+
+</style>
+
+
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" media="all" href="//july-xrkot.formstack.com/forms/css/3/ie.css?20140508" />
+        <![endif]-->
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" media="all" href="//july-xrkot.formstack.com/forms/css/3/ie7.css" />
+        <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" media="all" href="//july-xrkot.formstack.com/forms/css/3/ie6fixes.css" />
+        <![endif]-->
+        <style type="text/css">x
+            .fsBody .fsForm .fsMatrix th, .fsBody .fsForm .fsMatrixLabel {text-align: center;}
+        </style>
+    </head>
+    <body id="fsLocal" class="fsBody fsFree">
+        <center><h1>
+        {{ title }}
+        </h1></center>
+
+<!-- {% for i in lista: %}
+<input type="checkbox" value="{{ i }}" name="{{ i }}"/>{{i}}
+<br/>
+{% endfor %} -->
+
+        <form method="post" novalidate action="/" class="fsForm fsFormFree fsMultiColumn fsMaxCol4" id="fsForm2724721">
+            <div class="fsPage" id="fsPage2724721-1">
+                <div class="fsSection fs4Col">
+                    <div id="fsRow2724721-1" class="fsRow fsFieldRow fsLastRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell53515161" lang="pt">
+                            <label id="label53515161" class="fsLabel fsRequiredLabel" for="nome_estabelecimento">Nome do Estabelecimento</label>
+                            <input type="text" id="nome_estabelecimento" name="nome_estabelecimento" size="50" disabled value="{{ req['nome_estabelecimento'] }}" class="fsField fsRequired" aria-required="true"/>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                    <div id="fsRow2724721-2" class="fsRow fsFieldRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLabelVertical fsSpan50" id="fsCell53944057" lang="pt">
+                            <label id="label53944057" class="fsLabel fsRequiredLabel" for="endereco">Endereço</label>
+                            <label for="endereco_address" class="hidden">Linha 1<span class="fsRequiredMarker">*</span></label>
+                            <input type="text" id="endereco_address" name="endereco_address" size="50" disabled value="{{ req['endereco_address'] }}" class="fsField fsFieldAddress fsRequired" aria-required="true"/>
+                            <div class="fsSubFieldGroup">
+                                <div class="fsSubField fsFieldState">
+                                    <input type="text" id="endereco_zip" name="endereco_zip" size="15" value="{{ req['endereco_zip'] }}" class="fsField fsFieldZip fsFormatZipXX" disabled/>
+                                    <label class="fsSupporting" for="endereco_zip">CEP</label>
+                                </div>
+                                <div class="fsSubField fsFieldCity">
+                                    <input type="text" id="endereco_city" name="endereco_city" size="15" value="{{ req['endereco_city'] }}" class="fsField fsFieldCity fsRequired" aria-required="true" disabled/>
+                                    <label class="fsSupporting" for="endereco_city">Cidade</label>
+                                </div>
+                                <div class="fsSubField fsFieldZip">
+                                    <input type="text" id="endereco_state" name="endereco_state" size="5" value="{{ req['endereco_state'] }}"  class="fsField fsFieldState fsRequired" disabled/>
+                                    <label class="fsSupporting" for="endereco_state">Estado</label>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLabelVertical fsSpan25" id="fsCell53515148" lang="pt">
+                            <fieldset id="label53515148">
+                                <legend class="fsLabel fsLabelVertical"><span>Infraestrutura para Crianças</span></legend>
+                                <div class="fieldset-content">
+                                {% if req['infraestrutura']['Banheiro familiar'] == 1 %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_1"><input type="checkbox" id="infraestrutura_1" name="infraestrutura_1" value="Banheiro familiar" class="fsField horizontal" checked disabled/>Banheiro familiar</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_1"><input type="checkbox" id="infraestrutura_1" name="infraestrutura_1" value="Banheiro familiar" class="fsField horizontal" disabled/>Banheiro familiar</label>
+                                {% endif %}
+                                {% if req['infraestrutura']['Fraldário'] == 1 %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_2"><input type="checkbox" id="infraestrutura_2" name="infraestrutura_2" value="Fraldário" class="fsField horizontal" checked disabled/>Fraldário</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_2"><input type="checkbox" id="infraestrutura_2" name="infraestrutura_2" value="Fraldário" class="fsField horizontal" disabled/>Fraldário</label>
+                                {% endif %}
+                                {% if req['infraestrutura']['Espaço kids'] == 1 %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_3"><input type="checkbox" id="infraestrutura_3" name="infraestrutura_3" value="Espaço kids" class="fsField horizontal" checked disabled/>Espaço kids</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_3"><input type="checkbox" id="infraestrutura_3" name="infraestrutura_3" value="Espaço kids" class="fsField horizontal" disabled/>Espaço kids</label>
+                                {% endif %}
+                                {% if req['infraestrutura']['Monitor infantil'] == 1 %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_4"><input type="checkbox" id="infraestrutura_4" name="infraestrutura_4" value="Monitor infantil" class="fsField horizontal" checked disabled/>Monitor infantil</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_4"><input type="checkbox" id="infraestrutura_4" name="infraestrutura_4" value="Monitor infantil" class="fsField horizontal" disabled/>Monitor infantil</label>
+                                {% endif %}
+                                {% if req['infraestrutura']['Microondas'] == 1 %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_5"><input type="checkbox" id="infraestrutura_5" name="infraestrutura_5" value="Microondas" class="fsField horizontal" checked disabled/>Microondas</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="infraestrutura_5"><input type="checkbox" id="infraestrutura_5" name="infraestrutura_5" value="Microondas" class="fsField horizontal" disabled/>Microondas</label>
+                                {% endif %}
+                                    <!-- <div class="horizontal">
+                                        <label class="fsOptionLabel horizontal" style="margin-right: 5px;" for="infraestrutura_other"><input type="checkbox" id="infraestrutura_other" name="infraestrutura[]" value="Other" class="fsField" disabled/>Outro:</label>
+                                        <input type="text" id="infraestrutura_othervalue" name="infraestrutura_other" size="15" class="fsOtherField"	    /><label class="hidden" for="infraestrutura_othervalue" disabled>Outros valores</label>
+                                    </div> -->
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLast fsLabelVertical fsSpan25" id="fsCell53944228" lang="pt">
+                            <fieldset id="label53944228">
+                                <legend class="fsLabel fsLabelVertical"><span>Adicionais</span></legend>
+                                <div class="fieldset-content">
+                                {% if req['adicionais']['Acessibilidade'] == 1 %}
+                                    <label class="fsOptionLabel horizontal" for="adicionais_1"><input type="checkbox" id="adicionais_1" name="adicionais_1" value="Acessibilidade" class="fsField horizontal" checked disabled/>Acessibilidade</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="adicionais_1"><input type="checkbox" id="adicionais_1" name="adicionais_1" value="Acessibilidade" class="fsField horizontal" disabled/>Acessibilidade</label>
+                                {% endif %}
+                                {% if req['adicionais']['Estacionamento coberto'] == 1 %}
+                                    <label class="fsOptionLabel horizontal" for="adicionais_2"><input type="checkbox" id="adicionais_2" name="adicionais_2" value="Estacionamento coberto" class="fsField horizontal" checked disabled/>Estacionamento coberto</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="adicionais_2"><input type="checkbox" id="adicionais_2" name="adicionais_2" value="Estacionamento coberto" class="fsField horizontal" disabled/>Estacionamento coberto</label>
+                                {% endif %}                                
+                                {% if req['adicionais']['Elevador'] == 1 %}    
+                                    <label class="fsOptionLabel horizontal" for="adicionais_3"><input type="checkbox" id="adicionais_3" name="adicionais_3" value="Elevador" class="fsField horizontal" checked  disabled/>Elevador</label>
+                                {% else %}
+                                    <label class="fsOptionLabel horizontal" for="adicionais_3"><input type="checkbox" id="adicionais_3" name="adicionais_3" value="Elevador" class="fsField horizontal" disabled/>Elevador</label>
+                                {% endif %}
+                                    
+
+                                    <div class="horizontal">
+                                        <label class="fsOptionLabel horizontal" style="margin-right: 5px;" for="adicionais_other"><input type="checkbox" id="adicionais_other" name="adicionais[]" value="Other" class="fsField" disabled/>Outro:</label>
+                                        <input type="text" id="adicionais_othervalue" name="adicionais_other" size="15" class="fsOtherField" disabled/><label class="hidden" for="adicionais_othervalue">Outros valores</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                    <div id="fsRow2724721-3" class="fsRow fsFieldRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLabelVertical fsSpan25" id="fsCell53515169" lang="pt">
+                            <label id="label53515169" class="fsLabel" for="telefone">Telefone                    </label>
+                            <input type="tel" id="telefone" name="telefone" size="50" placeholder="(XX) XXXX - XXXX" title="(XX) XXXX - XXXX" value="{{ req['telefone'] }}" class="fsField fsFormatPhoneBR " data-country="BR" data-format="national" />
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLabelVertical fsSpan25" id="fsCell53515632" lang="pt">
+                            <fieldset id="label53515632">
+                                <legend class="fsLabel fsLabelVertical"><span>Abre às</span></legend>
+                                <div class="fieldset-content">
+                                    <span class="always-ltr">
+                                        <div class="hidden"><label for="aberturaH">Hour</label></div>
+                                        <select id="aberturaH" name="aberturaH" class="fsField" disabled>
+                                            <option value="{{ req['aberturaH'] }}" selected="selected">{{ req['aberturaH'] }}</option>
+                                        </select>
+                                        <div class="hidden"><label for="aberturaM">Minute</label></div>
+                                        <span>:</span> 
+                                        <select id="aberturaM" name="aberturaM" class="fsField" disabled>
+                                            <option value="{{ req['aberturaM'] }}" selected="selected">{{ req['aberturaM'] }}</option>
+                                        </select>
+                                        <div class="fs-clear">
+                                        </div>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLabelVertical fsSpan25" id="fsCell53944093" lang="pt">
+                            <fieldset id="label53944093">
+                                <legend class="fsLabel fsLabelVertical"><span>Fecha às</span></legend>
+                                <div class="fieldset-content">
+                                    <span class="always-ltr">
+                                        <div class="hidden"><label for="fechaH">Hour</label></div>
+                                        <select id="fechaH" name="fechaH" class="fsField" disabled>
+                                            <option value="{{ req['fechaH'] }}" selected="selected">{{ req['fechaH'] }}</option>
+                                        </select>
+                                        <div class="hidden"><label for="fechaM">Minute</label></div>
+                                        <span>:</span> 
+                                        <select id="fechaM" name="fechaM" class="fsField" disabled>
+                                            <option value="{{ req['fechaM'] }}" selected="selected">{{ req['fechaM'] }}</option>
+                                        </select>
+                                        <div class="fs-clear">
+                                        </div>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fsRowBody fsCell fsFieldCell fsLast fsLabelVertical fsSpan25" id="fsCell53944192" lang="pt">
+                            <fieldset id="label53944192">
+                                <legend class="fsLabel fsLabelVertical"><span>Menor movimento</span></legend>
+                                <div class="fieldset-content">
+                                    <span class="always-ltr">
+                                        <div class="hidden"><label for="menorMovH">Hour</label></div>
+                                        <select id="menorMovH" name="menorMovH" class="fsField" disabled>
+                                            <option value="{{ req['menorMovH'] }}" selected="selected">{{ req['menorMovH'] }}</option>
+                                        </select>
+                                        <div class="hidden"><label for="menorMovM">Minute</label></div>
+                                        <span>:</span> 
+                                        <select id="menorMovM" name="menorMovM" class="fsField" disabled>
+                                            <option value="{{ req['menorMovM'] }}" selected="selected">{{ req['menorMovM'] }}</option>
+                                        </select>
+                                        <div class="fs-clear">
+                                        </div>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                    <div id="fsRow2724721-4" class="fsRow fsFieldRow fsLastRow">
+                        <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell53944073" lang="pt">
+                            <label id="label53944073" class="fsLabel" for="descricao">Descrição</label>
+                            <textarea id="descricao" name="descricao" value="{{ req['descricao'] }}"rows="10" cols="50" class="fsField" disabled>{{ req['descricao'] }}</textarea>
+                        </div>
+                        <div class="fs-clear"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fsSubmit2724721" class="fsSubmit fsPagination">
+                <input id="fsSubmitButton2724721"
+                    class="fsSubmitButton"
+                    style="display: block;"
+                    type="submit"
+                    value="Voltar ao inicio" />
+                <div class="clear"></div>
+            </div>
+
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/jquery.min_1d14cd3798.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/jquery-ui.min_42a497cb9f.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/scripts_148ae93f95.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/analytics_e092e22178.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/google-phone-lib_f0ceec66db.js"></script>
+            <script type="text/javascript" src="//static.formstack.com/forms/js/3/modernizr_60a2d5aeb5.js"></script>
+            <div style="text-align:center !important;padding: 6px 10px !important; margin:10px auto !important; font-size:11px; font-family:Helvetica,Arial,sans-serif !important;background-color:#fff;color:#444 !important;-moz-border-radius:4px;-webkit-border-radius:4px;-o-border-radius:4px;border-radius:4px;width:150px !important">
+                <script src="//cdn.optimizely.com/js/27771037.js"></script>
+            </div>
+            
+            <div style="clear:both"></div>
+        </form>
+        <div class="fs-ngdialog fs-modal-medium fs-form-dialog fs-form-dialog--hidden">
+            <div class="fs-ngdialog-overlay"></div>
+            <div class="fs-ngdialog-content">
+                <div class="fs-modal__top fs-form-dialog__title"></div>
+                
+                <div class="fs-modal__bottom">
+                    <a class="fs-form-dialog__cancel fs-btn2 fs-btn2--size_medium fs-btn2--style_edit-dark" title="Cancelar">
+                        <div class="fs-btn2__content">
+                            <div class="fs-btn2__text">
+                                <span class="fs-form-dialog__button-text">Cancelar</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="fs-form-dialog__confirm fs-btn2 fs-btn2--size_medium fs-btn2--style_create fs--float-right" title="Confirmar">
+                        <div class="fs-btn2__content">
+                            <div class="fs-btn2__text">
+                                <span class="fs-form-dialog__button-text">Confirmar</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

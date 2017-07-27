@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash
 import sys
-import bd, funcoes
+import funcoes
 import pprint
 
 app = Flask(__name__)

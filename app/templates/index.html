@@ -1,0 +1,39 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Projeto Engenharia de Software (PES) - FACOM UFMS</h1>
+  
+  {% include 'flash.html' %}
+
+  <div class="well">
+    <p>Busque o estabelecimento</p>
+
+    <form class="form-horizontal" action="{{ url_for('searchEnterprise') }}" method='post'>
+      <div class="form-group">
+        <input list="estabelecimentos" type="text" class="form-control" name="estabelecimento" placeholder="Nome do estabelecimento">
+
+        <datalist id="estabelecimentos">
+          {% for ent in listEnterprises %}
+            <option value="{{ ent.name }}">
+          {% endfor %}
+        </datalist>
+      </div>
+
+      <div class="form-group">
+      {% for item in listItems %}
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="infraestrutura_{{ item.id }}" name="infraestrutura" value="{{ item.id }}"/>{{ item.description }}
+        </label>
+      </div>
+      {% endfor %}
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+
+  <a href="{{ url_for('addEnterprise') }}" class="btn btn-default" role="button">Cadastrar novo estabelecimento</a>
+
+{% endblock %}

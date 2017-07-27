@@ -1,0 +1,45 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ enterprise.name }}</h1>
+  
+    {% include 'flash.html' %}
+        <form action="{{ url_for('showEnterprise', enterprise_id=enterprise.id) }}" method="post">
+            <div class="well">
+                <div class="form-group">
+                    <label for="address">Endereço</label>
+                    <input type="text" name="address" id="address" class="form-control" disabled="disabled" value="{{ enterprise.address }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="text" name="phone" id="phone" class="form-control" disabled="disabled" value="{{ enterprise.phone }}">
+                </div>
+
+                {% for item in listItems %}
+                <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="{{ item.id }}" {% if item.id in choices %} checked="checked" {% endif %} disabled="disabled"> {{ item.description }}
+                    </label>
+                  </div>
+                {% endfor %}
+            </div>
+            
+            <div class="well">
+            {% for comment in enterprise.comments %}
+                <p><strong><span>{{ comment.text }}</span></strong></p>
+                <p><span>{{ comment.user.name }}</span></p>
+                <br />
+            {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label for="comment">Adicionar comentário</label>
+                <textarea name="comment" id="comment" class="form-control" rows="10"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Comentar</button>
+        </form>
+
+{% endblock %}
