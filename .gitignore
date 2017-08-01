@@ -1,0 +1,36 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.pyc
+*.sql
+*.pot
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+nbproject
+thumbs.db
+ 
+# deployment dirs
+/env
+/static
+/media
+
+# local configuration files
+local.py
+local_settings.py
+secrets.py
+ 
+# log files
+*.log.*
+*.log
+logs
+*.capture
