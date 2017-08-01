@@ -46,6 +46,8 @@
     }
 </style>
 
+{% block scripts -%}
+  {{super()}}
 <script type="text/javascript">
 $('.star-rating .fa').on({
     mouseenter: function () {
@@ -65,6 +67,7 @@ $('.star-rating .fa').on({
 
 
 </script>
+{% endblock %}
 
   </div>
 
