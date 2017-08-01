@@ -1,28 +1,26 @@
-<!-- extend base layout -->
-{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%- extends "base.html" %}
 
 {% block content %}
+<div class="container">
     <h1>{{ title }}</h1>
   
     {% include 'flash.html' %}
 
     <div class="well">
-        <form action="{{ url_for('addEnterprise') }}" method="post">
+        <form action="{{ url_for('addEnterprise') }}" class="form" method="post" role="form">
             {{ form.csrf_token }}
 
             <div class="form-group">
-                {{ form.name.label }}
-                {{ form.name() }}
+                {{ wtf.form_field(form.name) }}
             </div>
 
             <div class="form-group">
-                {{ form.phone.label }}
-                {{ form.phone() }}
+                {{ wtf.form_field(form.phone) }}
             </div>
 
             <div class="form-group">
-                {{ form.address.label }}
-                {{ form.address() }}
+                {{ wtf.form_field(form.address) }}
             </div>
 
             {% for item in form.items %}
@@ -35,5 +33,5 @@
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
-
+</div>
 {% endblock %}

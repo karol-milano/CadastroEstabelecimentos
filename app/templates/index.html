@@ -1,12 +1,12 @@
-<!-- extend base layout -->
-{% extends "base.html" %}
+{%- extends "base.html" %}
+{% import "bootstrap/utils.html" as utils %}
 
 {% block content %}
-  <h1>Projeto Engenharia de Software (PES) - FACOM UFMS</h1>
-  
+<div class="container">
   {% include 'flash.html' %}
 
-  <div class="well">
+  <div class="jumbotron">
+    <h2>Projeto Engenharia de Software (PES) - FACOM UFMS</h2>
     <p>Busque o estabelecimento</p>
 
     <form class="form-horizontal" action="{{ url_for('searchEnterprise') }}" method='post'>
@@ -35,5 +35,5 @@
 
 
   <a href="{{ url_for('addEnterprise') }}" class="btn btn-default" role="button">Cadastrar novo estabelecimento</a>
-
+</div>
 {% endblock %}

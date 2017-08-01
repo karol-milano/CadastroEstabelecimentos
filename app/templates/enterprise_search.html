@@ -1,7 +1,8 @@
-<!-- extend base layout -->
-{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%- extends "base.html" %}
 
 {% block content %}
+<div class="container">
     <h1>Estabelecimentos</h1>
   
     {% include 'flash.html' %}
@@ -15,5 +16,5 @@
     Vazio
     </div>
     {% endfor %}
-
+</div>
 {% endblock %}

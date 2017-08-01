@@ -4,6 +4,7 @@ from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
 
 from flask_sqlalchemy import get_debug_queries
+from sqlalchemy.sql import func
 
 from app import app, db, login_manager
 
@@ -35,15 +36,12 @@ def searchEnterprise():
 
 	if name != '':
 		if infra:
-			enterprises = Enterprise.query.join(
-					enterprise_items, (enterprise_items.c.item_id.in_(infra))).filter(
-						Enterprise.name == name).all()
+			enterprises = Enterprise.query.join(enterprise_items).filter(and_(enterprise_items.c.item_id.in_(infra), Enterprise.name == name)).all()
 		else:
 			enterprises = Enterprise.query.filter_by(name=name)
 	else:
 		if infra:
-			enterprises = Enterprise.query.join(
-				enterprise_items, (enterprise_items.c.item_id.in_(infra)))
+			enterprises = Enterprise.query.join(enterprise_items).filter(enterprise_items.c.item_id.in_(infra))
 		else:
 			enterprises = Enterprise.query.all()
 	
@@ -83,11 +81,29 @@ def showEnterprise(enterprise_id):
 	enterprise = Enterprise.query.get(enterprise_id)
 	listItems = Item.query.all()
 	choices = [i.id for i in enterprise.enterprise_items]
+	
+	count = 0
+	avg = 0
+	for er in enterprise.enterprise_ratings:
+		avg += er.grade
+		count+= 1
+
+	if count == 0:
+		average = '{:6.1f}'.format(0)
+	else:
+		average = '{:6.1f}'.format(avg / count)
 
 	if request.method == 'POST':
+		print(request.form)
+
 		if request.form['comment'] != '':
 			comment = Comment(request.form['comment'])
 			enterprise.comments.append(comment)
+			db.session.add(enterprise)
+			db.session.commit()
+		if request.form['grade'] != '':
+			er = EnterpriseRating(request.form['grade'])
+			enterprise.enterprise_ratings.append(er)
 			db.session.add(enterprise)
 			db.session.commit()
 
@@ -95,6 +111,8 @@ def showEnterprise(enterprise_id):
 		title='Edição de Estabelecimento',
 		enterprise=enterprise,
 		choices=choices,
+		average=average,
+		count=count,
 		listItems=listItems)
 
 ######################################################################################		

@@ -2,44 +2,88 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ enterprise.name }}</h1>
-  
-    {% include 'flash.html' %}
-        <form action="{{ url_for('showEnterprise', enterprise_id=enterprise.id) }}" method="post">
-            <div class="well">
-                <div class="form-group">
-                    <label for="address">Endereço</label>
-                    <input type="text" name="address" id="address" class="form-control" disabled="disabled" value="{{ enterprise.address }}">
-                </div>
+<div class="container">
+<h1>{{ enterprise.name }}</h1>
 
-                <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input type="text" name="phone" id="phone" class="form-control" disabled="disabled" value="{{ enterprise.phone }}">
-                </div>
+{% include 'flash.html' %}
+<form action="{{ url_for('showEnterprise', enterprise_id=enterprise.id) }}" method="post">
+    <div class="well">
+        <div class="form-group">
+            <label for="address">Endereço</label>
+            <input type="text" name="address" id="address" class="form-control" disabled="disabled" value="{{ enterprise.address }}">
+        </div>
 
-                {% for item in listItems %}
-                <div class="checkbox">
-                    <label>
-                      <input type="checkbox" value="{{ item.id }}" {% if item.id in choices %} checked="checked" {% endif %} disabled="disabled"> {{ item.description }}
-                    </label>
-                  </div>
-                {% endfor %}
-            </div>
-            
-            <div class="well">
-            {% for comment in enterprise.comments %}
-                <p><strong><span>{{ comment.text }}</span></strong></p>
-                <p><span>{{ comment.user.name }}</span></p>
-                <br />
-            {% endfor %}
-            </div>
+        <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="text" name="phone" id="phone" class="form-control" disabled="disabled" value="{{ enterprise.phone }}">
+        </div>
 
-            <div class="form-group">
-                <label for="comment">Adicionar comentário</label>
-                <textarea name="comment" id="comment" class="form-control" rows="10"></textarea>
-            </div>
+        {% for item in listItems %}
+        <div class="checkbox">
+            <label>
+              <input type="checkbox" value="{{ item.id }}" {% if item.id in choices %} checked="checked" {% endif %} disabled="disabled"> {{ item.description }}
+          </label>
+        </div>
+        {% endfor %}
 
-            <button type="submit" class="btn btn-primary">Comentar</button>
-        </form>
+        <div class="star-rating"> 
+          <span class="fa fa-star-o" data-rating="1"></span>
+          <span class="fa fa-star-o" data-rating="2"></span>
+          <span class="fa fa-star-o" data-rating="3"></span>
+          <span class="fa fa-star-o" data-rating="4"></span>
+          <span class="fa fa-star-o" data-rating="5"></span>
+          <input type="hidden" name="grade" class="grade" value="{{ average }}">
+        </div>
 
+        <span>Média geral: {{ average }} / 5</span> <br />
+        <span>Total de votos: {{ count }}</span>
+
+<style type="text/css">
+    .star-rating {
+      line-height:32px;
+      font-size:1.25em;
+      cursor: pointer;
+    }
+</style>
+
+<script type="text/javascript">
+$('.star-rating .fa').on({
+    mouseenter: function () {
+        $(this).removeClass('fa-star-o').addClass('fa-star');
+        $(this).prevAll().removeClass('fa-star-o').addClass('fa-star');
+        $(this).nextAll().removeClass('fa-star').addClass('fa-star-o');
+    },
+    mouseleave: function() {
+        $(this).removeClass('fa-star').addClass('fa-star-o');
+        $(this).prevAll().removeClass('fa-star').addClass('fa-star-o');
+    },
+    click: function() {
+        $(this).siblings('input.grade').val($(this).data('rating'));
+        $("form").submit();
+    }
+});
+
+
+</script>
+
+  </div>
+
+  <div class="well">
+    {% for comment in enterprise.comments %}
+    <p><strong><span>{{ comment.text }}</span></strong></p>
+    <p><span>{{ comment.user.name }}</span></p>
+    <br />
+    {% else %}
+    <h3>Sem comentários</h3>
+    {% endfor %}
+</div>
+
+<div class="form-group">
+    <label for="comment">Adicionar comentário</label>
+    <textarea name="comment" id="comment" class="form-control" rows="10"></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary">Comentar</button>
+</form>
+</div>
 {% endblock %}

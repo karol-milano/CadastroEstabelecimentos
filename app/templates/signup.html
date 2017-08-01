@@ -1,14 +1,15 @@
-<!-- extend base layout -->
-{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%- extends "base.html" %}
 
 {% block content %}
+<div class="container">
   {% include 'flash.html' %}
-  <form action="{{ url_for('signup') }}" method="Post">
+  <form action="{{ url_for('signup') }}" class="form form-horizontal" method="Post">
     {{form.csrf_token}}
     <fieldset>
-      <div>{{ form.name.label }}: {{ form.name() }}</div>
-      <div>{{ form.email.label }}: {{ form.email() }}</div>
-      <div>{{ form.phone.label }}: {{ form.phone() }}</div>
+      <div>{{ wtf.form_field(form.name) }}</div>
+      <div>{{ wtf.form_field(form.email) }}</div>
+      <div>{{ wtf.form_field(form.phone) }}</div>
       <div class="form-group">
         <button class="btn btn-default" type="submit">
         Criar conta
@@ -16,5 +17,5 @@
       </div>
     </fieldset>    
   </form>    
-
+</div>
 {% endblock %}
